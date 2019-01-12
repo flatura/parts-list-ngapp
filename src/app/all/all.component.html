@@ -1,3 +1,54 @@
-<p>
-  Компонента all работает!
-</p>
+<div class="container">
+  <!-- Меню комплектующего -->
+  <div class="row" style="margin-top:12px;">
+    <div class="col-md-8">
+      <input type="text"
+             [(ngModel)]="searchText"
+             class="form-control"
+             style="width: 100%;"
+             placeholder="Поиск комплектующих...">
+    </div>
+  </div>
+  <div>
+    <!-- Панель комплектующих -->
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Все комплектующие</h3>
+          <p *ngIf="this.parts.length === 0">Нет комплектующих!</p>
+        </div>
+      </div>
+      <div>
+        <!-- Список комплектующих -->
+        <table class="table table-striped table-bordered table-sm">
+          <thead>
+          <tr>
+            <th class="th-sm">id</th>
+            <th class="th-lg">Наименование</th>
+            <th class="th-sm">Необходимость</th>
+            <th class="th-sm">Количество</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let part of parts | paginate: {itemsPerPage: 10, currentPage: page}">
+            <td>{{part.id}}</td>
+            <td>{{part.name}}</td>
+            <td>{{part.required}}</td>
+            <td>{{part.count}}</td>
+            <!-- TODO Написать кнопку редактирования и удаления записи -->
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>id</th>
+            <th>Наименование</th>
+            <th>Необходимость</th>
+            <th>Количество</th>
+          </tr>
+          </tfoot>
+        </table>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

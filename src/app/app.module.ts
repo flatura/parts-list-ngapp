@@ -6,21 +6,24 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AllComponent } from './all/all.component';
 import { RequiredComponent } from './required/required.component';
 import { OptionalComponent } from './optional/optional.component';
-import {Router, RouterModule, Routes} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import { Router, RouterModule, Routes} from "@angular/router";
+import { FormsModule} from "@angular/forms";
 import { FeedbackComponent } from './feedback/feedback.component';
+import { PartsComponent } from './parts/parts.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const appRoutes: Routes = [
   {
-    path:'all',
+    path:'list/all',
     component:AllComponent
   },
   {
-    path:'required',
+    path:'list/required',
     component:RequiredComponent
   },
   {
-    path:'optional',
+    path:'list/optional',
     component:OptionalComponent
   }
 ];
@@ -32,11 +35,14 @@ const appRoutes: Routes = [
     AllComponent,
     RequiredComponent,
     OptionalComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    PartsComponent
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes, {enableTracing:true}) //TODO убрать enableTracing на продакшене
   ],
   providers: [],

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../shared/api.service";
+import {Part} from "../parts/model/part";
 
 @Component({
   selector: 'app-required',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./required.component.css']
 })
 export class RequiredComponent implements OnInit {
+  private parts: Part[] = [];
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.listRequiredParts();
   }
 
+  public listRequiredParts() {
+    this.apiService.getRequiredParts().subscribe(res => {this.parts = res;},err => {alert("Возникла ошибка;")});
+  }
 }
