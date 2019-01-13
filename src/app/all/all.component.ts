@@ -10,6 +10,7 @@ import {ApiService} from "../shared/api.service";
 export class AllComponent implements OnInit {
   private parts: Part[] = [];
   private page: number = 1;
+  private title: string = "Все комплектующие";
 
   constructor(private apiService: ApiService) { }
 

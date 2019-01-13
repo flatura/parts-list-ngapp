@@ -35,5 +35,9 @@ export class ApiService {
   getOptionalParts() : Observable<Part[]> {
     return this.http.get<Part[]>(this.OPTIONAL_PARTS_URL);
   }
+
+  getNumberOfAvailableAssemblies(): Observable<number> {
+    return this.http.get<number>(this.GET_NUMBER_OF_ASSEMBLIES_URL);
+  }
 }
 

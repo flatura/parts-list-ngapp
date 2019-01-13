@@ -9,6 +9,7 @@ import {Part} from "../parts/model/part";
 })
 export class OptionalComponent implements OnInit {
   private parts: Part[] = [];
+  private title: string = "Опциональные комплектующие";
 
   constructor(private apiService: ApiService) { }
 

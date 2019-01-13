@@ -12,6 +12,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { PartsComponent } from './parts/parts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {SummaryComponent} from './summary/summary.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,14 @@ const appRoutes: Routes = [
   {
     path:'list/optional',
     component:OptionalComponent
+  },
+  {
+    path: 'list/parts',
+    component: PartsComponent
+  },
+  {
+    path: 'summary',
+    component: SummaryComponent
   }
 ];
 
@@ -36,7 +45,8 @@ const appRoutes: Routes = [
     RequiredComponent,
     OptionalComponent,
     FeedbackComponent,
-    PartsComponent
+    PartsComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
