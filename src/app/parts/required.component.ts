@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../shared/api.service";
-import {Part} from "../parts/model/part";
+import {Part} from "./model/part";
 
 @Component({
   selector: 'app-required',
-  templateUrl: './required.component.html',
-  styleUrls: ['./required.component.css']
+  templateUrl: './parts.component.html',
+  styleUrls: ['./parts.component.css']
 })
 export class RequiredComponent implements OnInit {
   private parts: Part[] = [];

@@ -1,40 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {Router, RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { AllComponent } from './all/all.component';
-import { RequiredComponent } from './required/required.component';
-import { OptionalComponent } from './optional/optional.component';
-import { Router, RouterModule, Routes} from "@angular/router";
+import {MenuComponent} from './menu/menu.component';
+import {AllComponent} from './parts/all.component';
+import {RequiredComponent} from './parts/required.component';
+import {OptionalComponent} from './parts/optional.component';
 import { FormsModule} from "@angular/forms";
 import { FeedbackComponent } from './feedback/feedback.component';
-import { PartsComponent } from './parts/parts.component';
-import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {SummaryComponent} from './summary/summary.component';
 
 const appRoutes: Routes = [
-  {
-    path:'list/all',
-    component:AllComponent
-  },
-  {
-    path:'list/required',
-    component:RequiredComponent
-  },
-  {
-    path:'list/optional',
-    component:OptionalComponent
-  },
-  {
-    path: 'list/parts',
-    component: PartsComponent
-  },
-  {
-    path: 'summary',
-    component: SummaryComponent
-  }
+  {path: 'list/all', component: AllComponent},
+  {path: 'list/required', component: RequiredComponent},
+  {path: 'list/optional', component: OptionalComponent},
 ];
 
 @NgModule({
@@ -45,8 +28,8 @@ const appRoutes: Routes = [
     RequiredComponent,
     OptionalComponent,
     FeedbackComponent,
-    PartsComponent,
-    SummaryComponent
+    SummaryComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

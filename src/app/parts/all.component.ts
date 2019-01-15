@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Part} from "../parts/model/part";
+import {Part} from "./model/part";
 import {ApiService} from "../shared/api.service";
 
 @Component({
   selector: 'app-all',
-  templateUrl: './all.component.html',
-  styleUrls: ['./all.component.css']
+  templateUrl: './parts.component.html',
+  styleUrls: ['./parts.component.css']
 })
 export class AllComponent implements OnInit {
   private parts: Part[] = [];

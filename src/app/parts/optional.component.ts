@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../shared/api.service";
-import {Part} from "../parts/model/part";
+import {Part} from "./model/part";
 
 @Component({
   selector: 'app-optional',
-  templateUrl: './optional.component.html',
-  styleUrls: ['./optional.component.css']
+  templateUrl: './parts.component.html',
+  styleUrls: ['./parts.component.css']
 })
 export class OptionalComponent implements OnInit {
   private parts: Part[] = [];
