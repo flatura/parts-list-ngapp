@@ -4,11 +4,12 @@ import {Part} from "./model/part";
 
 @Component({
   selector: 'app-optional',
-  templateUrl: './parts.component.html',
-  styleUrls: ['./parts.component.css']
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
 export class OptionalComponent implements OnInit {
   private parts: Part[] = [];
+  private page: number = 1;
   private title: string = "Опциональные комплектующие";
 
   constructor(private apiService: ApiService) { }

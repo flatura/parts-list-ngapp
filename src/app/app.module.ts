@@ -13,6 +13,7 @@ import { FormsModule} from "@angular/forms";
 import { FeedbackComponent } from './feedback/feedback.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {SummaryComponent} from './summary/summary.component';
+import {PartComponent} from './parts/part/part.component';
 
 const appRoutes: Routes = [
   {path: 'list/all', component: AllComponent},
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     OptionalComponent,
     FeedbackComponent,
     SummaryComponent,
-    MenuComponent
+    MenuComponent,
+    PartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-search',
+  selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-// TODO НАПИСАТЬ Логика поиска комплектующего
 export class MenuComponent implements OnInit {
 
   constructor() {
@@ -14,4 +13,13 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  // TODO НАПИСАТЬ Логика поиска комплектующего
+  search() {
+
+  }
+
+  // TODO НАПИСАТЬ Логика создания нового комплектующего
+  createPart() {
+
+  }
 }

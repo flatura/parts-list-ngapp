@@ -4,8 +4,8 @@ import {ApiService} from "../shared/api.service";
 
 @Component({
   selector: 'app-all',
-  templateUrl: './parts.component.html',
-  styleUrls: ['./parts.component.css']
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
 export class AllComponent implements OnInit {
   private parts: Part[] = [];

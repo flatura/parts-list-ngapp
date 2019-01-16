@@ -7,37 +7,49 @@ import {Part} from "../parts/model/part";
   providedIn: 'root'
 })
 export class ApiService {
-  private BASE_URL = "http://localhost:8080/api";
-  private ALL_PARTS_URL = `${this.BASE_URL}\\list\\all`;
-  private REQUIRED_PARTS_URL = `${this.BASE_URL}\\list\\required`;
-  private OPTIONAL_PARTS_URL = `${this.BASE_URL}\\list\\optional`;
-
-  private CREATE_PART_URL = `${this.BASE_URL}\\part\\new`;
-  private EDIT_PART_URL = `${this.BASE_URL}\\part\\save`;
-  private GET_PART_URL = `${this.BASE_URL}\\part\\get\\`;
-  private DELETE_PART_URL = `${this.BASE_URL}\\part\\delete\\`;
-
-  private GET_NUMBER_OF_ASSEMBLIES_URL = `${this.BASE_URL}\\info\\assembliesavailable`;
-
+  private URL_BASE = "http://localhost:8080/api";
+  private URL_ALL_PARTS = `${this.URL_BASE}/list/all`;
+  private URL_REQUIRED_PARTS = `${this.URL_BASE}/list/required`;
+  private URL_OPTIONAL_PARTS = `${this.URL_BASE}/list/optional`;
+  private URL_CREATE_PART = `${this.URL_BASE}/part`;
+  private URL_EDIT_PART = `${this.URL_BASE}/part/`;
+  private URL_GET_PART = `${this.URL_BASE}/part/`;
+  private URL_DELETE_PART = `${this.URL_BASE}/part/delete/`;
+  private URL_GET_NUMBER_OF_ASSEMBLIES = `${this.URL_BASE}/info/assembliesavailable`;
 
   constructor(private http: HttpClient) {
-
   }
 
   getAllParts() : Observable<Part[]> {
-    return this.http.get<Part[]>(this.ALL_PARTS_URL);
+    return this.http.get<Part[]>(this.URL_ALL_PARTS);
   }
 
   getRequiredParts() : Observable<Part[]> {
-    return this.http.get<Part[]>(this.REQUIRED_PARTS_URL);;
+    return this.http.get<Part[]>(this.URL_REQUIRED_PARTS);
+    ;
   }
 
   getOptionalParts() : Observable<Part[]> {
-    return this.http.get<Part[]>(this.OPTIONAL_PARTS_URL);
+    return this.http.get<Part[]>(this.URL_OPTIONAL_PARTS);
   }
 
   getNumberOfAvailableAssemblies(): Observable<number> {
-    return this.http.get<number>(this.GET_NUMBER_OF_ASSEMBLIES_URL);
+    return this.http.get<number>(this.URL_GET_NUMBER_OF_ASSEMBLIES);
+  }
+
+  // TODO НАПИСАТЬ Логика создания нового комплектующего
+  createPart() {
+
+  }
+
+  // TODO НАПИСАТЬ Логика редактирования и сохранения существующего комплектующего
+  updatePart(part: Part): Observable<any> {
+    return this.http.put(this.URL_EDIT_PART, part);
+  }
+
+  // TODO НАПИСАТЬ Логика удаления комплектующего
+  deletePart(id: string): Observable<any> {
+    return this.http.delete(this.URL_DELETE_PART + id);
   }
 }
 

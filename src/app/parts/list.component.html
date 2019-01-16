@@ -17,6 +17,7 @@
             <th class="th-lg">Наименование</th>
             <th class="th-sm">Необходимость</th>
             <th class="th-sm">Количество</th>
+            <th class="th-sm">Управление</th>
           </tr>
           </thead>
           <tbody>
@@ -25,17 +26,22 @@
             <td>{{part.name}}</td>
             <td>{{part.required}}</td>
             <td>{{part.count}}</td>
-            <!-- TODO Написать кнопку редактирования и удаления записи -->
+            <td>
+              <button type="button"
+                      (click)="part.updatePart()"
+                      class="btn btn-outline-info"
+                      style="margin-left:3px;">
+                <i class="fa fa-cog"></i>
+              </button>
+              <button type="button"
+                      (click)="part.deletePart()"
+                      class="btn btn-outline-warning"
+                      style="margin-left:12px;">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
           </tr>
           </tbody>
-          <tfoot>
-          <tr>
-            <th>id</th>
-            <th>Наименование</th>
-            <th>Необходимость</th>
-            <th>Количество</th>
-          </tr>
-          </tfoot>
         </table>
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
       </div>
