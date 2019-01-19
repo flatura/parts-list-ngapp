@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
 
   // Создание нового комплектующего
   createPart() {
-    this.part = new Part("0", "Новый компонент", "false", "1");
+    this.part = new Part("0", "Новый компонент", false, "1");
     this.parts.push(this.part);
     this.isNewRecord = true;
   }
