@@ -20,34 +20,37 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
+  // Логика вывода всех комплектующих
   getAllParts() : Observable<Part[]> {
     return this.http.get<Part[]>(this.URL_ALL_PARTS);
   }
 
+  // Логика вывода обязательных комплектующих
   getRequiredParts() : Observable<Part[]> {
     return this.http.get<Part[]>(this.URL_REQUIRED_PARTS);
-    ;
   }
 
+  // Логика вывода опциональных комплектующих
   getOptionalParts() : Observable<Part[]> {
     return this.http.get<Part[]>(this.URL_OPTIONAL_PARTS);
   }
 
+  // Логика вывода доступного числа сборок
   getNumberOfAvailableAssemblies(): Observable<number> {
     return this.http.get<number>(this.URL_GET_NUMBER_OF_ASSEMBLIES);
   }
 
-  // TODO НАПИСАТЬ Логика создания нового комплектующего
-  createPart() {
-
+  // Логика создания нового комплектующего
+  createPart(part: Part): Observable<any> {
+    return this.http.post(this.URL_CREATE_PART, part);
   }
 
-  // TODO НАПИСАТЬ Логика редактирования и сохранения существующего комплектующего
+  // Логика редактирования и сохранения существующего комплектующего
   updatePart(part: Part): Observable<any> {
-    return this.http.put(this.URL_EDIT_PART, part);
+    return this.http.put(this.URL_EDIT_PART + part.id, part);
   }
 
-  // TODO НАПИСАТЬ Логика удаления комплектующего
+  // Логика удаления комплектующего
   deletePart(id: string): Observable<any> {
     return this.http.delete(this.URL_DELETE_PART + id);
   }
